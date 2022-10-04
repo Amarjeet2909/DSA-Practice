@@ -22,3 +22,14 @@ public:
         return position;
     }
 };
+
+//Solution 2 using find() function in c++:
+
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        size_t found = haystack.find(needle);
+
+        return found;
+    }
+};
