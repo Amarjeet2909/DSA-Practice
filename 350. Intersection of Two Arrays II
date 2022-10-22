@@ -1,0 +1,34 @@
+// Solution 1
+class Solution {
+public:
+    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+        vector<int> v;
+        int s1= nums1.size();
+        int s2= nums2.size();
+        int A[1001]={0};
+        int B[1001]={0};
+        for(int i=0;i<s1;i++){
+            int t= nums1[i];
+            A[t]++;
+        }
+        for(int i=0;i<s2;i++){
+            int t= nums2[i];
+            B[t]++;
+        }
+        for(int j=0;j<1001;j++){
+            if((A[j]!=0)&&(B[j]!=0)){
+                if(A[j]<=B[j]){
+                    for(int k=0;k<A[j];k++){
+                        v.push_back(j);
+                    }
+                }
+                else{
+                    for(int k=0;k<B[j];k++){
+                        v.push_back(j);
+                    }  
+                }
+            }
+        }
+        return v;
+    }
+};
