@@ -1,0 +1,11 @@
+// Solution 1 (Not Preferable)
+class Solution {
+public:
+    void nextPermutation(vector<int>& nums) {
+     while (next_permutation(nums.begin(),nums.end())){
+         return;
+     };
+    }
+};
+
+// Solution 2
