@@ -1,0 +1,24 @@
+// Solution 1
+class Solution {
+public:
+    int minDeletions(string s) {
+        int a[123]={0};
+        int count=0;
+        for(int i=0;i<s.length();i++){
+            char t= s[i];
+            int u= t;
+            a[u]++;
+        }
+        sort(a+97,a+123,greater<int>());
+        for(int i=97;i<122;i++){
+            for(int j=i+1;j<123;j++){
+                if((a[i]==a[j])&&(a[i]!=0)&&(a[j]!=0)){
+                a[j]--;
+                count++;
+                }
+            }
+        }
+
+        return count;
+    }
+};
