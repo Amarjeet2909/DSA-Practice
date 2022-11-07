@@ -1,0 +1,28 @@
+// Solution 1
+class Solution {
+public:
+    int titleToNumber(string columnTitle) {
+        int sum = 0;
+        int len= columnTitle.length();
+        if(len>1)
+        {
+            char t1= columnTitle[0];
+            int t2= (t1-'A')+1;
+            sum = sum*26+t2;
+            for(int i=1;i<len;i++)
+            {
+                char t3= columnTitle[i];
+                int t4= (t3-'A')+1;
+                sum = sum*26+t4;
+            }
+        }
+        else{ 
+            char t= columnTitle[0];
+            int temp = t-'A';
+            sum= temp+1;
+        }
+        return sum;
+    }
+};
+
+// Solution 2
