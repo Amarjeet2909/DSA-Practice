@@ -1,0 +1,32 @@
+// Solution 1
+class Solution {
+public:
+    bool canConstruct(string ransomNote, string magazine) {
+        int A[27]={0};
+        int B[27]={0};
+        bool res=true;
+        for(int i=0;i<ransomNote.length();i++)
+        {
+            char t1 = ransomNote[i];
+            int t2 = t1-97;
+            A[t2]++;
+        }
+        for(int j=0;j<magazine.length();j++)
+        {
+            char t1 = magazine[j];
+            int t2 = t1-97;
+            B[t2]++;
+        }
+        for(int k=0;k<26;k++)
+        {
+            if(B[k]<A[k])
+            {
+                res=false;
+                return res;
+            }
+        }
+        return res;
+    }
+};
+
+// Solution 2
