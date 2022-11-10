@@ -1,0 +1,50 @@
+// Solution 1
+class Solution {
+public:
+    bool wordPattern(string pattern, string s) {
+        vector<string> str;
+        int pattern_len = pattern.length();
+        int s_len = s.length();
+        string temp="";
+        bool res = true;
+        for(int i=0;i<s_len;i++)
+        {
+            if(s[i]==' ')
+            {
+                str.push_back(temp);
+                temp="";
+            }
+            else
+            temp+=s[i];
+
+            if(i==s_len-1)
+            {
+                str.push_back(temp);
+            }
+        }
+
+        int str_size = str.size();
+        if(str_size!=pattern_len) return false;
+        for(int i=0;i<pattern_len-1;i++)
+        {
+            for(int j=i+1;j<pattern_len;j++)
+            {
+                if(pattern[i]==pattern[j])
+                {
+                    if(str[i]!=str[j])
+                    {
+                        return false;
+                    }
+                }
+                if(str[i]==str[j])
+                {
+                    if(pattern[i]!=pattern[j])
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+        return res;
+    }
+};
