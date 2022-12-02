@@ -1,0 +1,11 @@
+// Solution 1
+class Solution {
+public:
+    vector<int> findDisappearedNumbers(vector<int>& nums) {
+        unordered_set<int> s(nums.begin(), nums.end());
+        vector<int> ans(nums.size()-s.size());
+        for(int i = 1, j = 0; i <= size(nums); i++)  
+            if(!s.count(i)) ans[j++] = i;
+        return ans;
+    }
+};
