@@ -1,0 +1,23 @@
+// Solution 1
+class Solution {
+public:
+    int kthSmallest(vector<vector<int>>& matrix, int k) {
+        vector<int> temp;
+        int res=0;
+        for(int i=0;i<matrix.size();i++)
+        {
+            for(int j=0;j<matrix[i].size();j++)
+            {
+                int t= matrix[i][j];
+                temp.push_back(t);
+            }
+        }
+        sort(temp.begin(),temp.end());
+        for(auto i: temp) cout<<i<<" ";
+        vector<int>::iterator ptr = temp.begin();
+        auto it = next(ptr, k-1);
+        res= *it;
+
+        return res;
+    }
+};
