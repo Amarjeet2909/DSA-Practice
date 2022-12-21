@@ -1,0 +1,25 @@
+// Solution 1
+class Solution {
+public:
+    bool areOccurrencesEqual(string s) {
+        bool res= true;
+        int A[26]={0};
+        int len = s.length();
+        for(int i=0;i<len;i++)
+        {
+            int t = s[i]-'a';
+            A[t]++;
+        }
+        int *max= max_element(A, A + 26);
+        int Max_ele= (*max);
+        for(int i=0;i<26;i++)
+        {
+            if((A[i]>0)&&(A[i]!=Max_ele))
+            {
+                res = false;
+                break;
+            }
+        }
+        return res;
+    }
+};
