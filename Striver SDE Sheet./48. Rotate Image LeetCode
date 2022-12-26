@@ -15,7 +15,7 @@ public:
     }
 };
 
-// Solution 2
+// Solution 2 | O(N2)
 class Solution {
 public:
     void rotate(vector<vector<int>>& matrix) {
