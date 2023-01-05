@@ -21,3 +21,27 @@ public:
         return result;
     }
 };
+
+// Moore's Voting Algo | Optimized Solution
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int result=nums[0], count=1;
+        int n=nums.size();
+        for(int i=1;i<n;i++)
+        {
+            if(count==0)
+            {
+                count++;
+                result=nums[i];
+            }
+            else if(result==nums[i])
+            {
+                count++;
+            }
+            else
+            count--;
+        }
+        return result;
+    }
+};
