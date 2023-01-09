@@ -31,5 +31,4 @@ int main(){
     s1=repeat(s,k);
     super(s1);
     cout<<res;
-    return 0;
 }
