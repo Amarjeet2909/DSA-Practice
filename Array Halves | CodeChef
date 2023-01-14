@@ -1,0 +1,92 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define amar long long
+
+
+vector<amar> fun1(vector<amar> myarray, amar number);
+vector<amar> fun2(vector<amar> myarray, amar number);
+amar resfun(vector<amar> temp2, vector<amar> temp3);
+
+void mergeSort(int arr[], int l, int r) 
+{
+  if (l < r) 
+  {
+    // m is the point where the array is divided into two subarrays
+    int m = l + (r - l) / 2;
+
+    mergeSort(arr, l, m);
+    mergeSort(arr, m + 1, r);
+
+    // Merge the sorted subarrays
+    mergeSort(arr, l, r);
+  }
+}
+
+int main()
+{
+    static int testcase;
+    cin>>testcase;
+    while(testcase--)
+    {
+        amar number;
+        cin>>number;
+
+        long long temp1 = 2*number;
+        vector<long long> myarray(temp1);
+
+        // Input taking
+        for(int i=0;i<temp1;i++)
+        {
+            cin>>myarray[i];
+        }
+
+        vector<amar> temp2;
+        vector<amar> temp3;
+
+        temp2 = fun1(myarray, number);
+        temp3 = fun2(myarray, number);
+
+
+        sort(temp2.begin(),temp2.end());
+
+        sort(temp3.begin(),temp3.end());
+
+        amar finsl = resfun(temp2, temp3);
+        cout<<finsl<<endl;
+
+    }
+    return 0;
+}
+
+vector<amar> fun1(vector<amar> myarray, amar number)
+{
+        vector<amar> res1;
+        for(int i=0;i<2*number;i++)
+        {
+            if((myarray[i]>number) and (i<number)) 
+            res1.push_back(i+1);
+        }
+        return res1;
+}
+
+vector<amar> fun2(vector<amar> myarray, amar number)
+{
+        vector<amar> res2;
+        for(int i=0;i<2*number;i++)
+        {
+            if((myarray[i]<=number) and (i>=number)) 
+            res2.push_back(i+1);
+        }
+        return res2;
+}
+
+amar resfun(vector<amar> temp2, vector<amar> temp3)
+{
+        amar ans =0;
+        amar number = temp2.size();
+        for(int i=0;i<number;i++)
+        {
+            ans+= abs(temp2[i]-temp3[i]);
+        }
+        return ans;
+}
