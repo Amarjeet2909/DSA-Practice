@@ -1,0 +1,23 @@
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        bool res= "true";
+        int A[27]={0};
+        int B[27]={0};
+        if(s.length()!=t.length()) return false;
+        for(int i=0;i<s.length();i++)
+        {
+            int t1 = s[i]-'a';
+            A[t1]++;
+            int t2 = t[i]-'a';
+            B[t2]++;
+        }
+        for(int i=0;i<26;i++)
+        {
+            if(A[i]!=B[i]){
+                return false;
+            }
+        }
+        return res;
+    }
+};
