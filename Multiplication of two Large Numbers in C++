@@ -70,3 +70,4 @@ int main()
 	cout << multi(str1, str2);
 	return 0;
 }
+// when numbers are too big that id more than the limit of strong integer
